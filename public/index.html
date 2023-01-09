@@ -35,7 +35,7 @@
         </li>
         <li class="card">
           <h2>Long Video</h2>
-          <video controls src="https://ro7756kg8.hb-bkt.clouddn.com/the-internets-own-boy.ogv"></video>
+          <video id="long-video" controls></video>
           <p className="url">
             <a target="_blank" rel="noreferrer" href="https://ro7756kg8.hb-bkt.clouddn.com/the-internets-own-boy.ogv">
               <code>the-internets-own-boy.ogv</code>
@@ -58,7 +58,9 @@
           threshold: 1024 * 10
         }
       }
-    })
+    }).then(() => setTimeout(() => { // 推迟播放器初始化的时间，避免播放器生命周期内部分请求未走代理、部分走代理导致的异常（TODO: 搞清楚异常的原因）
+      document.getElementById('long-video').src = 'https://ro7756kg8.hb-bkt.clouddn.com/the-internets-own-boy.ogv'
+    }, 200))
   </script>
 
 </body>
