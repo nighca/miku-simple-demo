@@ -14,10 +14,10 @@
         Miku
       </h1>
 
-      <pre class="sample-code"><code>&lt;script src="/miku-0.10.1.js"&gt;&lt;/script&gt;
+      <pre class="sample-code"><code>&lt;script src="/miku-0.10.2.js"&gt;&lt;/script&gt;
 
 &lt;script&gt;
-  miku.initProxy('/miku-sw-0.10.1.js', {
+  miku.initProxy('/miku-sw-0.10.2.js', {
     app: { appID: '&lt;APP_ID&gt;', appSalt: '&lt;APP_SALT&gt;' },
     domains: ['www-static.qnssl.com']
   })
@@ -35,7 +35,7 @@
         </li>
         <li class="card">
           <h2>Video</h2>
-          <video controls src="https://www-static.qnssl.com/_netr_test/forest-compress.mp4"></video>
+          <video controls data-src="https://www-static.qnssl.com/_netr_test/forest-compress.mp4"></video>
           <p className="url">
             <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/forest-compress.mp4">
               <code>forest-compress.mp4</code>
@@ -44,7 +44,7 @@
         </li>
         <li class="card">
           <h2>Audio</h2>
-          <audio controls src="https://www-static.qnssl.com/_netr_test/ukulele.mp3"></audio>
+          <audio controls data-src="https://www-static.qnssl.com/_netr_test/ukulele.mp3"></audio>
           <p className="url">
             <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/ukulele.mp3">
               <code>ukulele.mp3</code>
@@ -53,7 +53,7 @@
         </li>
         <li class="card">
           <h2>Long Video</h2>
-          <video controls src="https://www-static.qnssl.com/_netr_test/the-internets-own-boy.ogv"></video>
+          <video controls data-src="https://www-static.qnssl.com/_netr_test/the-internets-own-boy.ogv"></video>
           <p className="url">
             <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/the-internets-own-boy.ogv">
               <code>the-internets-own-boy.ogv</code>
@@ -64,10 +64,10 @@
     </main>
   </div>
 
-  <script src="/miku-0.10.1.js"></script>
+  <script src="/miku-0.10.2.js"></script>
 
   <script>
-    miku.initProxy('/miku-sw-0.10.1.js', {
+    miku.initProxy('/miku-sw-0.10.2.js', {
       app: { appID: 'ao89rvrjpyi4gn57', appSalt: 'reimp7tnc2y9p11hckwz10lt3tigw8e7' },
       domains: ['www-static.qnssl.com'],
       client: {
@@ -76,6 +76,13 @@
           threshold: 1024 * 10
         }
       }
+    }).then(() => {
+      // 推迟 `<video>`、`<audio>` 加载，避免 chrome 的这个问题 https://bugs.chromium.org/p/chromium/issues/detail?id=1406478
+      setTimeout(() => {
+        [...document.getElementsByTagName('video'), ...document.getElementsByTagName('audio')].forEach(media => {
+          media.setAttribute('src', media.getAttribute('data-src'))
+        })
+      }, 100)
     })
   </script>
 
