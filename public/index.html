@@ -70,7 +70,7 @@
     mikuDelivery.initProxy('/miku-delivery-sw-0.11.0.js', {
       app: { appID: 'ao89rvrjpyi4gn57', appSalt: 'reimp7tnc2y9p11hckwz10lt3tigw8e7' },
       domains: ['www-static.qnssl.com']
-    }).then(() => {
+    }).finally(() => {
       // 推迟 `<video>`、`<audio>` 加载，避免 chrome 的这个问题 https://bugs.chromium.org/p/chromium/issues/detail?id=1406478
       setTimeout(() => {
         [...document.getElementsByTagName('video'), ...document.getElementsByTagName('audio')].forEach(media => {
