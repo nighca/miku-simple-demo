@@ -19,43 +19,25 @@
 &lt;script&gt;
   mikuDelivery.initProxy('/miku-delivery-sw-0.11.0.js', {
     app: { appID: '&lt;APP_ID&gt;', appSalt: '&lt;APP_SALT&gt;' },
-    domains: ['www-static.qnssl.com']
+    domains: ['ro7756kg8.hb-bkt.clouddn.com']
   })
 &lt;/script&gt;</code></pre>
 
       <ul class="grid">
         <li class="card">
           <h2>Image</h2>
-          <img alt="Fabric" src="https://www-static.qnssl.com/_netr_test/fabric.jpeg" />
+          <img alt="Fabric" src="https://ro7756kg8.hb-bkt.clouddn.com/fabric.jpg" />
           <p className="url">
-            <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/fabric.jpeg">
+            <a target="_blank" rel="noreferrer" href="https://ro7756kg8.hb-bkt.clouddn.com/fabric.jpg">
               <code>fabric.jpeg</code>
             </a>
           </p>
         </li>
         <li class="card">
-          <h2>Video</h2>
-          <video controls data-src="https://www-static.qnssl.com/_netr_test/forest-compress.mp4"></video>
-          <p className="url">
-            <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/forest-compress.mp4">
-              <code>forest-compress.mp4</code>
-            </a>
-          </p>
-        </li>
-        <li class="card">
-          <h2>Audio</h2>
-          <audio controls data-src="https://www-static.qnssl.com/_netr_test/ukulele.mp3"></audio>
-          <p className="url">
-            <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/ukulele.mp3">
-              <code>ukulele.mp3</code>
-            </a>
-          </p>
-        </li>
-        <li class="card">
           <h2>Long Video</h2>
-          <video controls data-src="https://www-static.qnssl.com/_netr_test/the-internets-own-boy.ogv"></video>
+          <video controls data-src="https://ro7756kg8.hb-bkt.clouddn.com/the-internets-own-boy.ogv"></video>
           <p className="url">
-            <a target="_blank" rel="noreferrer" href="https://www-static.qnssl.com/_netr_test/the-internets-own-boy.ogv">
+            <a target="_blank" rel="noreferrer" href="https://ro7756kg8.hb-bkt.clouddn.com/the-internets-own-boy.ogv">
               <code>the-internets-own-boy.ogv</code>
             </a>
           </p>
@@ -69,7 +51,13 @@
   <script>
     mikuDelivery.initProxy('/miku-delivery-sw-0.11.0.js', {
       app: { appID: 'ao89rvrjpyi4gn57', appSalt: 'reimp7tnc2y9p11hckwz10lt3tigw8e7' },
-      domains: ['www-static.qnssl.com']
+      domains: ['ro7756kg8.hb-bkt.clouddn.com'],
+      client: {
+        mediaOptimization: {
+          // 为方便查看代理效果，这里配置一个较小的首开优化阈值
+          threshold: 1024 * 10
+        }
+      }
     }).finally(() => {
       // 推迟 `<video>`、`<audio>` 加载，避免 chrome 的这个问题 https://bugs.chromium.org/p/chromium/issues/detail?id=1406478
       setTimeout(() => {
